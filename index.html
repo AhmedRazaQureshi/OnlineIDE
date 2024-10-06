@@ -3,45 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintenance Page</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        .container {
-            background-color: #fff;
-            border: 2px solid #ddd;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2em;
-            color: #333;
-        }
-
-        p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
-            color: #555;
-        }
-    </style>
+    <title>Online IDE</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Under Maintenance.</h1>
-        <p>Your patience is appreciated</p>
+        <h1>Online IDE</h1>
+        <select id="language">
+            <option value="C">C</option>
+            <option value="CPP">C++</option>
+            <option value="JAVA">Java</option>
+            <option value="PYTHON">Python</option>
+        </select>
+
+        <textarea id="sourceCode" placeholder="Write your code here..."></textarea>
+
+        <input type="text" id="inputData" placeholder="Input (optional)">
+        <button id="runCode">Run Code</button>
+
+        <div id="output">
+            <h3>Output</h3>
+            <pre id="outputData"></pre>
+        </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
