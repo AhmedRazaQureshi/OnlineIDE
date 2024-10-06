@@ -3,8 +3,8 @@ document.getElementById("runCode").addEventListener("click", function () {
     const sourceCode = document.getElementById("sourceCode").value;
     const inputData = document.getElementById("inputData").value;
 
-    const clientSecret = 'ead0bec43044ecc89517214020386399f3a4b7c4';
-    const clientId = '3a96e4f31e3c17705e5789fb10d4a66d728349735b89.api.hackerearth.com';
+    const clientSecret = 'ead0bec43044ecc89517214020386399f3a4b7c4';  // Client Secret
+    const clientId = '3a96e4f31e3c17705e5789fb10d4a66d728349735b89.api.hackerearth.com';  // Client ID
 
     const apiUrl = 'https://api.hackerearth.com/v4/partner/code-evaluation/submissions/';
 
@@ -13,8 +13,7 @@ document.getElementById("runCode").addEventListener("click", function () {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "client-secret": clientSecret,  // Pass client-secret in headers
-            "client-id": clientId           // Pass client-id in headers
+            "client-secret": clientSecret,  // Pass client-secret in headers (this is mandatory)
         },
         body: JSON.stringify({
             "source": sourceCode,
@@ -41,7 +40,7 @@ document.getElementById("runCode").addEventListener("click", function () {
 
 // Function to periodically check the status of the code evaluation
 function checkStatus(heId) {
-    const clientSecret = 'ead0bec43044ecc89517214020386399f3a4b7c4';
+    const clientSecret = 'ead0bec43044ecc89517214020386399f3a4b7c4';  // Client Secret
     const statusUrl = `https://api.hackerearth.com/v4/partner/code-evaluation/submissions/${heId}/`;
 
     fetch(statusUrl, {
