@@ -3,16 +3,16 @@ document.getElementById("runCode").addEventListener("click", function () {
     const sourceCode = document.getElementById("sourceCode").value;
     const inputData = document.getElementById("inputData").value;
 
-    // Client Secret Key (Provided by you)
     const clientSecret = 'ead0bec43044ecc89517214020386399f3a4b7c4';
     const clientId = '3a96e4f31e3c17705e5789fb10d4a66d728349735b89.api.hackerearth.com';
 
-    fetch("https://api.hackerearth.com/v4/partner/code-evaluation/submissions/", {
+    // Append client-secret and client-id to the URL parameters
+    const apiUrl = `https://api.hackerearth.com/v4/partner/code-evaluation/submissions/?client-secret=${clientSecret}&client-id=${clientId}`;
+
+    fetch(apiUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "client-id": clientId,               // Add Client ID to headers
-            "client-secret": clientSecret         // Add Client Secret Key to headers
         },
         body: JSON.stringify({
             "source": sourceCode,
@@ -24,6 +24,8 @@ document.getElementById("runCode").addEventListener("click", function () {
     })
     .then(response => response.json())
     .then(data => {
+        console.log("API Response:", data); // Log full API response for debugging
+
         if (data && data.run_status) {
             document.getElementById("outputData").textContent = data.run_status.output || "No output";
         } else {
