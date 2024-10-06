@@ -3,7 +3,7 @@ document.getElementById("runCode").addEventListener("click", function () {
     const sourceCode = document.getElementById("sourceCode").value;
     const inputData = document.getElementById("inputData").value;
 
-    const apiKey = 'YOUR_HACKEREARTH_API_KEY';
+    const apiKey = '3a96e4f31e3c17705e5789fb10d4a66d728349735b89.api.hackerearth.com';
 
     fetch("https://api.hackerearth.com/v4/partner/code-evaluation/submissions/", {
         method: "POST",
